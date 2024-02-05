@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<head>
+    <!-- 
+        The style tag can be used to style different
+        elements different ways. We will learn about this
+        more in the future.
+     -->
+    <style>
+        body{
+            max-width: 50vw;
+            margin:auto;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+
+        dt{
+            font-weight: bold;
+            font-size: 15pt;
+        }
+
+        p{
+            font-size: 13pt;
+        }
+
+        pre{
+            font-family: 'Consolas', 'Ubuntu-Mono', 'Courier-New';
+            font-size: 13pt;
+            background-color:rgb(33, 36, 39);
+            color:rgb(135, 177, 235);
+            padding: 10px;
+            border-radius: 5px;
+            tab-size: 0;
+            white-space: normal;
+        }
+        
+        .code{
+            font-family: 'Consolas', 'Ubuntu-Mono', 'Courier-New';
+            color:dodgerblue;
+        }
+
+        .grid-parent{
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            }
+
+
+        .child1{
+            display: flex;
+            align-items: center;
+            margin:auto;
+        }
+
+        .child2{
+            display: flex;
+            align-items: center;
+            margin:auto;
+        }
+
+        .html-render{
+            text-align: left;
+            border-style: solid;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .html-raw{
+            text-align: left;
+            padding: 5px;
+            margin-right: 10px;
+        }
+
+        .image{
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <title>
+        Lesson 1
+    </title>
+</head>
+
+<body>
+    <h1>Lesson 1</h1>
+    <h2>What is the internet?</h2>
+    <p>
+        Across the world the internet functions as a network that connects us. 
+        We can visualize the internet as a web of connected nodes. This leads to
+        someone corny images like this:
+    </p>
+
+    <div class="image">
+        <a href="https://www.youtube.com/watch?v=Dxcc6ycZ73M">
+            <img 
+                alt="a corny image of planet earth with a grid overlayed" 
+                src="https://st.depositphotos.com/1062624/4071/i/450/depositphotos_40716309-stock-photo-best-internet-concept-of-global.jpg"
+                width="400"
+            >
+        </a>
+    </div>
+
+    <p> Here is a more accurage diagram to constrast:</p>
+    <div class="image">
+        <figure>
+        <img
+            src="http://content.opte.org/production12/20220812.1000.attempt_1/attempt_1_run_20220812.1000.coords_10000x8000_light.png"
+            width="80%"
+            height="80%"
+            >
+        <figcaption>
+            This is a very large image so it will take a bit to load. <a href="https://youtu.be/-L1Zs_1VPXA?si=FmjT89g6wRrq8nuO">Here 
+                is a timlapse of the evolution of the internet</a> to watch while you wait.
+                <span style="color:rgb(48, 70, 214)">North America</span>,
+                <span style="color:rgb(67, 214, 48)">Europe</span>,
+                <span style="color:rgb(255, 0, 0)">Asia</span>,
+                <span style="color:rgb(197, 0, 177)">Latin America</span>,
+                <span style="color:rgb(255, 119, 0)">Africa</span>,
+                <span style="color:rgb(88, 88, 88)">"Backbone" (highly connected)</span>
+        </figcaption>
+        </figure>
+    </div>
+
+    <p>
+        Of these nodes, there are essentially 3 kinds:
+    </p>
+    <dl>
+        <dt>clients</dt>
+        <dd>computers asking for webpages or data</dd>
+        <dt>servers</dt>
+        <dd>computers answering requests from the clients</dd>
+        <dt>routers</dt>
+        <dd>computers that are inbetween clients and servers that foward requests/responses to the correct place.
+        </dd>
+    </dl>
+    <p> Here is a basic diagram where the large network of routers inbetween the client and server is simply called <b>the internet</b>:</p>
+    <div class="image">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c9/Client-server-model.svg">
+    </div>
+
+    <h2>What is a web application? Web page?</h2>
+    <p>There is a large diversity of different kinds of data that can be sent between a client and server. But, when we 
+        start speaking about <b>web applications</b>, we're talking about an entire program that is essentially 
+        delivered to a client by a server. For example, google docs is a web application that allows someone to write a 
+        document. It is very similar to microsoft word or pages, but it is a program that delivered to you laptop when you type
+        <span style="background-color: beige; font-family: monospace; color: rgb(0, 94, 94);">docs.google.com</span> into 
+        your web browser's search bar.
+    </p>
+
+    <p>An entire web application is pretty fully featured. To support all these features, the application probably has
+        multiple <b>web pages</b>. For example, when you're using google docs, there is a page that allows you to edit a document
+        and a page that allows you to browse documents you have already writen.
+    </p>
+
+    <div class="grid-parent">
+        <div class="child1">
+            <img src="https://gdm-catalog-fmapi-prod.imgix.net/ProductScreenshot/291090f3-2e00-4a01-8b63-4488e8d91541.png?auto=format&q=50" width="100%">
+        </div>
+        <div class="child2">
+            <img src="https://i.ytimg.com/vi/_KJ3S7qOt20/maxresdefault.jpg" width="100%">
+        </div>
+    </div>
+
+    <p>
+        Because someone can only view one page a time in their web browser, 
+        when a <b>client</b> makes a request of a <b>server</b>, the server will (generally) only deliver one web page.
+    </p>
+
+    <p>
+        A single web page of an application can be thought of as being composed of 3 distinct parts.
+    </p>
+
+    <dl>
+        <dt>interface</dt>
+        <dd>
+            the code that describes the elements on the page that interacts with the user--text, buttons, dropdowns, etcetera
+            --along with how they look.
+        </dd>
+        <dt>logic</dt>
+        <dd>
+            the code tied to a web page that describes the behaviors of the web page based on how the user interacts
+            with it
+        </dd>
+        <dt>data</dt>
+        <dd>
+            the dynamic information of a web page that is filled in by either the server or the client
+        </dd>
+    </dl>
+
+    <p>
+        When creating web pages that compose a web application, the first part we will focus on is the interface. 
+        This is because--and we will see this in future lessons--that the interface of a web page forms the skeleton
+        of the page, while details of the web page (how it looks, its logic) will be--in a way--tacked onto this skeleton.
+    </p>
+
+    <h2>HTML</h2>
+
+    <p>
+        Most web page <b>files</b> are written using a coding language called <b>HTML</b> (though there are few others). This stands for <i>hypertext markup language</i>.
+        This coding language is standardized and is universally understood by nearly every <b>web browser</b>. When your web browser (the client) request a web page
+        from a server, what is most often sent back over the internet is an <b>HTML</b> file. Your browser then reads and interprets this code in order to display
+        the web page.
+    </p>
+
+    <p>
+        HTML uses text wrapped in <b>tags</b> to create the page's interface, these tags are essentially instructions for the browser. For example, if write:
+    </p>
+
+    <div class="grid-parent">
+        <div class="html-render">
+            <h3>About me</h3>
+        </div>
+        <div class="html-raw">
+            <pre> &lt;h3&gt; About me &lt;/h3&gt; </pre>
+        </div>
+    </div>
+
+    <p>
+        I've written instructions inside my HTML file that tell the browser to create a heading (this is what the <span class="code">h3</span> tag means)
+        that reads "About me"
+    </p>
+
+    <p>HTML is read sequentially, meaning instructions are read one after another. So if I write:</p>
+    </p>
+
+    <div class="grid-parent">
+        <div class="html-render">
+            <h3>About me</h3>
+            <p> My favorite color is blue! </p>
+        </div>
+        <div class="html-raw">
+            <pre> 
+                &lt;h3&gt; About me &lt;/h3&gt;<br>
+                &lt;p&gt; My favorite color is blue! &lt;/p&gt; 
+            </pre>
+        </div>
+    </div>
+
+    <p>
+        I've written instructions inside my HTML file that tell the browser to create a heading that reads "About me" followed by a paragraph that contains the text 
+        "My favorite color is blue!"
+    </p>
+
+    <h3>A note about blank spaces</h3>
+    <p>
+        When coding, most coders refer to blank spaces in their code as "whitespace". This comes from a time when every text editor was a program with black text on a 
+        white background that looked like this:
+    </p>
+
+    <pre style="color: black; background-color: white;">
+        &lt;!DOCTYPE html&gt; <br>
+        &lt;h3&gt; About me &lt;/h3&gt;<br>
+        &lt;p&gt; My favorite color is blue! &lt;/p&gt; 
+    </pre>
+
+    <p>
+        This is not really accurate anymore because most text editors come in a large variety of colors and most coders use non-white backgrounds because it is easier on your eyes.
+        Unfortunately, this term is embedded in much of the literature you'll read about coding in general, so we are kind of stuck with it :/
+    </p>
+
+    <p>
+        You may noticed already or not, in HTML the whitespace inbetween tags doesn't mean much. For example, here is alternative 
+        with a bunch of added whitespace in the HTML code.
+        Notice how it doesn't change what the browser shows at all:
+    </p>
+
+    <div class="grid-parent">
+        <div class="html-render">
+            <h3> About                     me</h3>
+            <p> My      fav orite color      is        blue! </p>
+        </div>
+        <div class="html-raw">
+            <pre style="white-space: pre;"> 
+&lt;h3&gt; About                           me &lt;/h3&gt;
+&lt;p&gt; My      fav orite color      
+is          blue! &lt;/p&gt; 
+            </pre>
+        </div>
+    </div>
+
+    <p>All the whitespace really does is tell the browser when two words are separate. Though, you must be careful. If you put whitespace inside a tag itself,
+       this will cause a syntax error and might lead to some unexpected behavior.    
+    </p>
+
+    <div class="grid-parent">
+        <div class="html-render">
+            <    h 3> About                 me</h3>
+            <p> My      fav orite color      is       blue! </p>
+        </div>
+        <div class="html-raw">
+            <pre style="white-space: pre;"> 
+&lt;    h 3&gt; About                       me &lt;/h3&gt;
+&lt;p&gt; My      fav orite color      
+is          blue! &lt;/p&gt; 
+            </pre>
+        </div>
+    </div>
+
+    <p>
+        As you've already seen, to create an HTML page, you must always start your document with:
+    </p>
+
+    <div>
+        <pre> &lt;!DOCTYPE html&gt; </pre>
+    </div>
+
+    <p>
+        This is a formality and helps the browser identify what kind of file it is reading the same way a <b>file extension</b> does.
+    </p>
+
+
+    <h2>Vocabulary</h2>
+
+    <dl>
+        <dt>clients</dt>
+        <dd>computers asking for webpages or data</dd>
+        <dt>servers</dt>
+        <dd>computers answering requests from the clients</dd>
+        <dt>routers</dt>
+        <dd>computers that are inbetween clients and servers that foward requests/responses to the correct place.
+        <dt>interface</dt>
+        <dd>
+            the code that describes the elements on the page that interacts with the user--text, buttons, dropdowns, etcetera
+            --along with how they look.
+        </dd>
+        <dt>logic</dt>
+        <dd>
+            the code tied to a web page that describes the behaviors of the web page based on how the user interacts
+            with it
+        </dd>
+        <dt>data</dt>
+        <dd>
+            the dynamic information of a web page that is filled in by either the server or the client
+        </dd>
+        <dt>HTML</dt>
+        <dd>
+            <i>Hypertext Markup Language</i>; the code that nearly every web page is written in.
+        </dd>
+        <dt>tag</dt>
+        <dd>
+            A kind of HTML code that is wrapped around text. These are instructions to the browser on how to 
+            display the inner text. Example: <pre> <b>&lt;h3&gt;</b>  A heading  <b>&lt;/h3&gt;</b> </pre>
+        </dd>
+        <dt>whitespace</dt>
+        <dd>
+            blank spaces in your HTML document
+        </dd>
+    </dl>
+
+    <h3>Important notes</h3>
+
+    <ul>
+        <li>Web pages are HTML files that are sent from servers to clients</li>
+        <li>Always include <span style="font-family: monospace; font-size: 13pt;">&lt;!DOCTYPE html&gt;</span> at the top of your .html file</li>
+        <li>HTML elements are displayed sequentially</li>
+        <li>Whitespace inside HTML code doesn't always matter, but it can create a syntax error if you're not careful</li>
+    </ul>
+</body>
